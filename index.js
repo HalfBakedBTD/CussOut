@@ -15,7 +15,14 @@ const badWords = [
     'assfuck',
     'assfucker',
     'fucker',
-    'dick'
+    'dick',
+    'ass',
+    'cum',
+    'penis',
+    'dildo',
+    'vegina',
+    'condom',
+    'condum'
 ];
 
 bot.on("ready", async () => {
