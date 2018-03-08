@@ -13,8 +13,9 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   
-  if (message.content.includes('test')) {
-   message.channel.send("TEST!")
+  if (message.content.toLowerCase().includes('ping'))) {
+    message.channel.send("PONG!")
+    message.delete().catch(O_o=>{});
   }
 });
 
