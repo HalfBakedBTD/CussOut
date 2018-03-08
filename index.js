@@ -50,6 +50,10 @@ bot.on("message", async message => {
             return;
         }
     }
+  if (message.content === ',help') {
+    message.channel.send("DMed you! Check it out for all the info!")
+    return message.author.send("**My Commands:**\n\t`help` shows this message.\n\t`test` tests if the bot is properly set up.\n\t`invite` gives an invite link to add the bot to your server.\n\n**Info:**\n\tThis bot was created by <@346687165868015616> who was allways finding trouble with having to type all the cuss words into Dyno, Mee6, or any other bot which you can add banned words to. He allways found a lot of trouble with these bots so finally he decided to do something about it. This bot was created soon after and now will work to bleep out all them curse words used by *cancer* discord users.")
+  }
 });
 
 bot.login(process.env.BOT_TOKEN);
