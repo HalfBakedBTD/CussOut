@@ -15,7 +15,7 @@ bot.on("message", async message => {
   
   if (message.content.toLowerCase().includes('ping')) {
     message.delete().catch(O_o=>{});
-    message.channel.send("PONG!")
+    message.channel.send(`**${massage.author.id}** said ping!`).then(msg => msg.delete(2000));
   }
 });
 
