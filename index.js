@@ -65,6 +65,7 @@ bot.on("message", async message => {
   if (message.content === ',test') {
     let logschannel = message.guild.channels.find(`name`, "logs");
     if(!logschannel) return message.channel.send("You don't have a **#logs** channel in the server! Please create one!");
+    message.channel.send("**__ALL SYSTEMS OPERATIONAL!__** In other words you did everything right and CussOut can run properly!")
   }
 });
 
