@@ -29,7 +29,7 @@ const badWords = [
     'crap',
     'lmfoa',
     'lmfa0',
-    'hell',
+    'hell ',
     'pussy',
     'af'
 ];
@@ -89,5 +89,6 @@ bot.on("message", async message => {
 });
 
 //Ik5KSLzA6C
+//test lol note thing
 
 bot.login(process.env.BOT_TOKEN);
