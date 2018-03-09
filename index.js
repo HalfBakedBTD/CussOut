@@ -53,7 +53,7 @@ bot.on("message", async message => {
   }
   if (message.content === '^test') {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I test for you? I have a **Admin only** policy.");
-    let globalchannel = message.guild.channels.find(`name`, "logs");
+    let globalchannel = message.guild.channels.find(`name`, "global");
     if(!globalchannel) return message.channel.send("You don't have a **#global** channel in the server! Please create one then type `,test`!");
     message.channel.send("**__ALL SYSTEMS OPERATIONAL!__** In other words you did everything right and CussOut can run properly!")
   }
