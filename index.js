@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
+const chratis_cooldown_time = 60;
+const chratis_talked_users = new Set();
 const badWords = [
     'nigga',
     'nigger',
@@ -88,11 +90,16 @@ bot.on("message", async message => {
   }
   if (message.content === ',invites') {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+    if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this commands again.")  
     message.channel.createInvite()
     	.then(invite => {
 	    bot.channels.filter(c => c.name.toLowerCase() === 'announcements').forEach(channel => channel.send(`A server named **${message.guild.name}** sent an invite: https://www.discord.gg/${invite.code}`));
         });
     message.channel.send("You have sent an invite to your server to the Boss' server!")
+    chratis_talked_users.add(message.author.id);
+    setTimeout(() => {
+      chratis_talked_users.delete(message.author.id);
+    }, chratis_cooldown_time * 1000);
   } 
 });
 
