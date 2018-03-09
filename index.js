@@ -39,11 +39,11 @@ bot.on("ready", async () => {
 
 client.on('guildMemberAdd', member => {
   // Send the message to a designated channel on a server:
-  const channel = member.guild.channels.find('name', 'member-log');
+  const channel = member.guild.channels.find('name', 'welcome');
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
   // Send the message, mentioning the member
-  channel.send(`Welcome to the server, ${member}`);
+  channel.send(`Welcome to the server, ${member}!`);
 });
 
 bot.on("message", async message => {
@@ -76,6 +76,9 @@ bot.on("message", async message => {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I test for you? I have a **Admin only** policy.");
     let logschannel = message.guild.channels.find(`name`, "logs");
     if(!logschannel) return message.channel.send("You don't have a **#logs** channel in the server! Please create one then type `,test`!");
+    let welcomechannel = message.guild.channels.find(`name`, "logs");
+    if(!welcomechannel) return message.channel.send("You don't have a **#welcome** channel in the server! Please create one then type `,test`!");
+
     message.channel.send("**__ALL SYSTEMS OPERATIONAL!__** In other words you did everything right and CussOut can run properly!")
   }
   if (message.content === ',info') {
