@@ -92,7 +92,6 @@ bot.on("message", async message => {
     	.then(invite => {
 	    bot.channels.filter(c => c.name.toLowerCase() === 'announcements').forEach(channel => channel.send(`A server named **${message.guild.name}** sent an invite: https://www.discord.gg/${invite.code}`));
         });
-    	.catch(console.error);
     message.channel.send("You have sent an invite to your server to the Boss' server!")
   } 
 });
