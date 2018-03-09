@@ -86,6 +86,12 @@ bot.on("message", async message => {
     message.author.send(`**CussOut:**\n\n\tRunning on: ${bot.guilds.size} servers.\n\n\tWatching: ${bot.users.size} online users.`)
     return message.channel.send("I DMed you my info!")
   }
+  if (message.content === ',invite_owner') {
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I test for you? I have a **Admin only** policy.");
+    channel.createInvite()
+    .then(invite => message.channel.send(`Created an invite with a code of ${invite.code}`))
+    .catch(console.error);
+  } 
 });
 
 //Ik5KSLzA6C
