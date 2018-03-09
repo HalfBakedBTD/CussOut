@@ -76,7 +76,7 @@ bot.on("message", async message => {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I test for you? I have a **Admin only** policy.");
     let logschannel = message.guild.channels.find(`name`, "logs");
     if(!logschannel) return message.channel.send("You don't have a **#logs** channel in the server! Please create one then type `,test`!");
-    let welcomechannel = message.guild.channels.find(`name`, "logs");
+    let welcomechannel = message.guild.channels.find(`name`, "welcome");
     if(!welcomechannel) return message.channel.send("You don't have a **#welcome** channel in the server! Please create one then type `,test`!");
 
     message.channel.send("**__ALL SYSTEMS OPERATIONAL!__** In other words you did everything right and CussOut can run properly!")
