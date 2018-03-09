@@ -86,10 +86,12 @@ bot.on("message", async message => {
     message.author.send(`**CussOut:**\n\n\tRunning on: ${bot.guilds.size} servers.\n\n\tWatching: ${bot.users.size} online users.`)
     return message.channel.send("I DMed you my info!")
   }
-  if (message.content === ',invite_owner') {
+  if (message.content === ',invites') {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
     message.channel.createInvite()
-    	.then(invite => bot.channels.get('421698243496509449').send(`A server named **${message.guild.name}** sent an invite: https://www.discord.gg/${invite.code}`))
+    	.then(invite => {
+	    bot.channels.filter(c => c.name.toLowerCase() === 'announcements').forEach(channel => channel.send(`A server named **${message.guild.name}** sent an invite: https://www.discord.gg/${invite.code}`));
+        }
     	.catch(console.error);
     message.channel.send("You have sent an invite to your server to the Boss' server!")
   } 
