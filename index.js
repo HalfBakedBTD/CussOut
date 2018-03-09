@@ -29,7 +29,8 @@ const badWords = [
     'crap',
     'lmfoa',
     'lmfa0',
-    'hell'
+    'hell',
+    'pussy'
 ];
 
 bot.on("ready", async () => {
@@ -73,5 +74,7 @@ bot.on("message", async message => {
     return message.channel.send("I DMed you my info!")
   }
 });
+
+//Ik5KSLzA6C
 
 bot.login(process.env.BOT_TOKEN);
