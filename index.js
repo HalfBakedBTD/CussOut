@@ -37,7 +37,7 @@ bot.on("ready", async () => {
     console.log(`${bot.user.username} is online!`);
 });
 
-client.on('guildMemberAdd', member => {
+bot.on('guildMemberAdd', member => {
   // Send the message to a designated channel on a server:
   const channel = member.guild.channels.find('name', 'welcome');
   // Do nothing if the channel wasn't found on this server
