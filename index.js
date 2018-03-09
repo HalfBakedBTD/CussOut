@@ -43,7 +43,7 @@ bot.on("message", async message => {
         var rgx = new RegExp(badWords[i], 'gi');
         if (rgx.test(message.content)) {
             let logschannel = message.guild.channels.find(`name`, "logs");
-	    if(!logschannel) return message.channel.send("Please create a '#logs' channel so I can report and delete vulgar!");
+	    if(!logschannel) return message.channel.send("The bot is not properly setup! Type `,test` to see whats wrong!");
             message.delete().catch(O_o=>{});
             message.channel.send("**__VULGAR DELETED__**").then(msg => msg.delete(2000));
             logschannel.send(`:skull_crossbones: Cleared ${message.author.username}'s message.`)
@@ -63,6 +63,7 @@ bot.on("message", async message => {
     return message.author.send("**Invite me** to your discord:\n:link: https://discordapp.com/api/oauth2/authorize?client_id=421154212899192832&permissions=8&scope=bot :link:")
   }
   if (message.content === ',test') {
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I test for you? I have a **Admin only** policy.");
     let logschannel = message.guild.channels.find(`name`, "logs");
     if(!logschannel) return message.channel.send("You don't have a **#logs** channel in the server! Please create one then type `,test`!");
     message.channel.send("**__ALL SYSTEMS OPERATIONAL!__** In other words you did everything right and CussOut can run properly!")
