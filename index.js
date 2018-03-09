@@ -87,8 +87,8 @@ bot.on("message", async message => {
     return message.channel.send("I DMed you my info!")
   }
   if (message.content === ',invite_owner') {
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I test for you? I have a **Admin only** policy.");
-    channel.createInvite()
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+    message.channel.createInvite()
     .then(invite => message.channel.send(`Created an invite with a code of ${invite.code}`))
     .catch(console.error);
   } 
