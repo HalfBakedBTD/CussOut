@@ -56,7 +56,7 @@ bot.on("message", async message => {
 	    if(!logschannel) return message.channel.send("The bot is not properly setup! Type `,test` to see whats wrong!");
             message.delete().catch(O_o=>{});
             message.channel.send("**__VULGAR DELETED__**").then(msg => msg.delete(2000));
-            logschannel.send(`:skull_crossbones: <@${message.author.id}> sent \`${message.author.lastMessage}\` in ${message.channel.name}.`)
+            logschannel.send(`:skull_crossbones: <@${message.author.id}> sent \`${message.author.lastMessage}\` in #${message.channel.name}.`)
             return;
         }
     }
