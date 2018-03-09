@@ -30,7 +30,8 @@ const badWords = [
     'lmfoa',
     'lmfa0',
     'hell',
-    'pussy'
+    'pussy',
+    'af'
 ];
 
 bot.on("ready", async () => {
