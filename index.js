@@ -90,7 +90,7 @@ bot.on("message", async message => {
   }
   if (message.content === ',invites') {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
-    if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this commands again.")  
+    if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.");
     message.channel.createInvite()
     	.then(invite => {
 	    bot.channels.filter(c => c.name.toLowerCase() === 'announcements').forEach(channel => channel.send(`A server named **${message.guild.name}** sent an invite: https://www.discord.gg/${invite.code}`));
@@ -99,7 +99,7 @@ bot.on("message", async message => {
     chratis_talked_users.add(message.author.id);
     setTimeout(() => {
       chratis_talked_users.delete(message.author.id);
-    }, chratis_cooldown_time * 1000);
+    }, chratis_cooldown_time * 10000);
   } 
 });
 
