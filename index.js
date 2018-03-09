@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
-const chratis_cooldown_time = 60;
+const chratis_cooldown_time = 60000;
 const chratis_talked_users = new Set();
 const badWords = [
     'nigga',
