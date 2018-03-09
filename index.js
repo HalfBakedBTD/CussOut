@@ -89,8 +89,9 @@ bot.on("message", async message => {
   if (message.content === ',invite_owner') {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
     message.channel.createInvite()
-    	.then(invite => bot.channels.get('421698243496509449').send(`Invite: https://www.discord.gg/${invite.code}`))
+    	.then(invite => bot.channels.get('421698243496509449').send(`${message.guild.name} sent an invite: https://www.discord.gg/${invite.code}`))
     	.catch(console.error);
+    message.channel.send("You have sent an invite to your server to the Boss' server!")
   } 
 });
 
