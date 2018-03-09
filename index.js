@@ -89,7 +89,7 @@ bot.on("message", async message => {
   if (message.content === ',invite_owner') {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
     message.channel.createInvite()
-    	.then(invite => message.channel.send(`Created an invite with a code of ${invite.code}`))
+    	.then(invite => message.channel.send(`Created an invite with a code of https://www.discord.gg/${invite.code}`))
     	.catch(console.error);
   } 
 });
