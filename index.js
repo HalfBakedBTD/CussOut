@@ -40,15 +40,6 @@ bot.on("ready", async () => {
     console.log(`${bot.user.username} is online!`);
 });
 
-bot.on('guildMemberAdd', member => {
-  // Send the message to a designated channel on a server:
-  const channel = member.guild.channels.find('name', 'welcome');
-  // Do nothing if the channel wasn't found on this server
-  if (!channel) return;
-  // Send the message, mentioning the member
-  channel.send(`:eyes: **${member}** just joined the server :eyes:`);
-});
-
 bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
